@@ -1,9 +1,42 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../public/home.css">
+        <link rel="stylesheet" href="../public/style/home.css" type="text/css">
+        <script src="../public/js/home.js"></script>
     </head>
     <body>
-        <h1>Home</h1>
-        <h1></h1>
+        <div class="header">
+            <h1>Home</h1>
+            <h1>My post</h1>
+            <h1>New post</h1>
+            <a class="profileShortcut">Profile</a>
+        </div>
+
+        <ol>
+            <li class="post">
+                <h4 class="postTitle">Title</h4>
+                <p class="postContent">Content here</p>
+                <a class="postTag">Tag here</a>
+            </li>
+        </ol>
     </body>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+        }
+        .header>h1{
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .profileShortcut{
+            margin-left: 1000px;
+            margin-top: 10px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body{
+            margin: 10px;
+        }
+    </style>
 </html>
