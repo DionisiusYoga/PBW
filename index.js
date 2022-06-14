@@ -30,7 +30,12 @@ app.get('/',(req, res)=> {
 app.get('/home',(req, res)=>{
     res.render('home')
 })
-
+app.get('/postList',(req, res)=>{
+    res.render('postList')
+})
+app.get('/new',(req, res)=>{
+    res.render('newPost')
+})
 app.get('/profile',(req, res)=>{
     
 })

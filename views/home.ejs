@@ -22,9 +22,7 @@
         categoryId:1,
         content:"Content2 Content2 Content2 Content2 Content2 Content2 Content2 Content2 Content2"
     }
-    function redirect(){
-        window.location.href="http://localhost:8080/"
-    };
+    
 ]
 
 var threads = testPost
@@ -33,9 +31,9 @@ var threads = testPost
     </head>
     <body>
         <div class="header">
-            <h1>Home</h1>
-            <h1>My post</h1>
-            <h1>New post</h1>
+            <a href="http://localhost:8080/home"><h1>Home</h1></a>
+            <a href="http://localhost:8080/postList"><h1>My post</h1></a>
+            <a href="http://localhost:8080/new"><h1>New post</h1></a>
             <a class="profileShortcut">Profile</a>
         </div>
 
@@ -47,5 +45,30 @@ var threads = testPost
             </li>
         </ol>
     </body>
-    <style></style>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+        }
+        .header>a{
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .profileShortcut{
+            position: absolute;
+            right: 3%;
+            top: 5%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body{
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 0px;
+        }
+    </style>
 </html>

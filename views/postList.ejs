@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <div class="header">
+            <a href="http://localhost:8080/home"><h1>Home</h1></a>
+            <a href="http://localhost:8080/postList"><h1>My post</h1></a>
+            <a href="http://localhost:8080/new"><h1>New post</h1></a>
+            <a class="profileShortcut">Profile</a>
+        </div>
+    </head>
+    <body>
+        <div class="dropdown">
+            <button class="dropbtn">Filter tag</button>
+            <div class="content">
+                <a>Link1</a>
+                <a>Link1</a>
+                <a>Link1</a>
+                <a>Link1</a>
+            </div>
+        </div>
+    </body>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+        }
+        .header>a{
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .profileShortcut{
+            position: absolute;
+            right: 3%;
+            top: 5%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body{
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 0px;
+        }
+        .dropbtn{
+            background-color: rgb(0, 67, 67);
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+        .dropdown{
+            position: relative;
+            display: inline-block;
+            margin: 15px;
+        }
+        .content{
+            display: none;
+            position: absolute;
+            background-color:darkgray;
+            z-index: 1;
+        }
+        .content a{
+            color: black;
+            text-decoration: none;
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            border-style: solid;
+            border: 1px;
+        }
+        .dropdown:hover .content{
+            display: block;
+        }
+        .content a:hover{
+            background-color: azure;
+        }
+    </style>
+</html>
