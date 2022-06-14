@@ -1,6 +1,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="../public/login.css">
+        <script type="text/javascript">
+            function redirect(){
+                window.location.href="http://localhost:8080/home";
+            }
+        </script>
     </head>
     <body>
         
@@ -9,7 +14,7 @@
             <input type="text" name="id">
             <label for="pass">Password</label>
             <input type="password" name="pass">
-            <input type="submit">
+            <button onclick="redirect()">Submit</button>
         </form>
     </body>
 </html>
