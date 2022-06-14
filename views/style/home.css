@@ -1,0 +1,18 @@
+.header{
+    background-color: aqua;
+    display: inline-flex;
+    width: 100%;
+}
+.header>h1{
+    margin-right: 50px;
+    margin: 10px;
+}
+.profileShortcut{
+    margin-left: 1000px;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+body{
+    margin: 10px;
+}
