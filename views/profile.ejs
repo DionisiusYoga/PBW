@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link>
+    </head>
+    <body>
+        <div class="header">
+            <a class="backBtn" href="http://localhost:8080/home">Back</a>
+        </div>
+        <div class="box">
+            <div class="name">
+                <h1>John Doe</h1>
+            </div>
+            <div class="posts">
+                <ul>
+                    <li>
+                        <div class="post">
+                            <h3>My first post</h3>
+                            <div class="postDetail">
+                                <a>2020-12-29</a>
+                                <a>202 Upvotes</a>
+                                <a>3 Comments</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="post">
+                            <h3>My second post</h3>
+                            <div class="postDetail">
+                                <a>2020-12-29</a>
+                                <a>202 Upvotes</a>
+                                <a>3 Comments</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+    <style>
+        body{
+           margin: 15px; 
+        }
+        .backBtn{
+            margin:15px;
+            text-decoration: none;
+            color: black;
+        }
+        .box{
+            background-color: rgb(189, 186, 186);
+            height: 80%;
+            width: 90%;
+            margin: auto auto auto auto;
+            border-radius: 20px;
+        }
+        .name{
+            background-color: aqua;
+            width: 100%;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            border-radius: 25px;
+            margin: 0 auto 0 auto;
+        }
+        li{
+            list-style: none;
+            margin: 4px;
+            color: white;
+        }
+        h3{
+            size: 1.5em;
+            font-weight: bold;
+        }
+        .postDetails{
+            display: inline-flex;
+            align-items: flex-end;
+        }
+        .post{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: #353739;
+            border-radius: 5px;
+            padding-left: 15px;
+            padding-bottom: 5px;
+            width: 90%;
+        }
+       
+    </style>
+</html>

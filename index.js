@@ -37,5 +37,5 @@ app.get('/new',(req, res)=>{
     res.render('newPost')
 })
 app.get('/profile',(req, res)=>{
-    
+    res.render('profile')
 })

@@ -8,13 +8,65 @@
         </script>
     </head>
     <body>
-        
+        <div class="box">
+            <h1>Log in</h1>
         <form>
-            <label for="id">ID</label>
-            <input type="text" name="id">
-            <label for="pass">Password</label>
-            <input type="password" name="pass">
-            <button onclick="redirect()">Submit</button>
+            
+            
+            <input type="text" name="id" placeholder="ID">
+            <br><br>
+            <input type="password" name="pass" placeholder="Password">
+            
         </form>
+        <button onclick="redirect()">Submit</button>
+        </div>
     </body>
+    <style>
+        body{
+            margin: 0px;
+            background-color: aqua;
+            width: auto;
+            text-align: center;
+            margin: 20px 0px 20px 0px;
+        }
+        .box{
+            background: white;
+            width: 500px;
+            border-radius: 10px;
+            border: rgb(0, 124, 124) 5px solid;
+            padding: 0px 0px 100px 0px;
+            margin: 0px auto 0px auto;
+        }
+        h1{
+            color: rgb(80, 80, 80);
+        }
+        input{
+            background:#ecf0f1;
+            border: #ccc 1px solid;
+            border-bottom: #ccc 2px solid;
+            padding: 8px;
+            width:250px;
+            color:#AAAAAA;
+            margin-top:10px;
+            font-size:1em;
+            border-radius:4px;
+        }
+        button{
+            background:#2ecc71;
+            width:200px;
+            padding-top:5px;
+            padding-bottom:5px;
+            color:white;
+            border-radius:4px;
+            border: #27ae60 1px solid;
+  
+            margin-top:20px;
+            float:none;
+            margin-left:16px;
+            font-weight:800;
+            font-size:0.8em;
+        }
+
+
+    </style>
 </html>
