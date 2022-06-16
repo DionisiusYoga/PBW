@@ -3,7 +3,16 @@
         <link rel="stylesheet" href="../public/login.css">
         <script type="text/javascript">
             function redirect(){
-                window.location.href="http://localhost:8080/home";
+                var id = document.getElementById("id").value;
+                var pass = document.getElementById("pass").value;
+                if(id=="user" && pass=="123"){
+                    window.location.href="http://localhost:8080/home";
+                } else if (id=="admin" && pass=="admin") {
+                    window.location.href="http://localhost:8080/homeAdmin";
+                } else if(id=="mod" && pass=="mod123"){
+                    window.location.href="http://localhost:8080/homeMod";
+                }
+                
             }
         </script>
     </head>
@@ -13,9 +22,9 @@
         <form>
             
             
-            <input type="text" name="id" placeholder="ID">
+            <input type="text" name="id" id="id" placeholder="ID" required>
             <br><br>
-            <input type="password" name="pass" placeholder="Password">
+            <input type="password" name="pass" id="pass" placeholder="Password" required>
             
         </form>
         <button onclick="redirect()">Submit</button>
@@ -65,6 +74,13 @@
             margin-left:16px;
             font-weight:800;
             font-size:0.8em;
+        }
+        button:hover{
+            border: #2ecc71 1px solid;
+            border-radius: 4px;
+            background-color: white;
+            color: #2ecc71;
+            cursor: pointer;
         }
 
 

@@ -14,7 +14,25 @@
                 <input type="text" placeholder="Your title"><br><br>
                 <textarea class="textArea" rows="5" cols="60" placeholder="Your post here"></textarea><br><br>
 
-                <button class="submit">Submit</button>
+                
+                <div class="tagSelection">
+                    <div><input type="checkbox" id="question" name="question" value="question">
+                        <label for="question">Question</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="news" name="news" value="news">
+                    <label for="news">News</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Wholesome" name="Wholesome" value="Wholesome">
+                    <label for="Wholesome">Wholesome</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Confession" name="Confession" value="Confession">
+                    <label for="Confession">Confession</label>
+                    </div>
+                </div><br><br>
+                <button class="submit">Submit</button><br>
             </div>
         </form>
     </body>
@@ -45,6 +63,10 @@
         }
         body{
             margin: 10px;
+        }
+        .tagSelection{
+            display: inline-flex;
+            flex-direction: column;
         }
         a{
             text-decoration: none;

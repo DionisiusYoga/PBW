@@ -39,3 +39,9 @@ app.get('/new',(req, res)=>{
 app.get('/profile',(req, res)=>{
     res.render('profile')
 })
+app.get('/homeAdmin',(req, res)=>{
+    res.render('homeAdmin')
+})
+app.get('/homeMod',(req, res)=>{
+    res.render('homeMod')
+})

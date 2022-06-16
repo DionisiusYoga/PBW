@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../public/style/home.css">
+        <script src="../public/js/home.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            function upvote(){
+                var vote = document.getElementById("votes").innerHTML;
+                document.getElementById("votes").innerHTML = parseInt(vote) + 1;
+                document.getElementById("upvote").onclick = "";
+                document.getElementById("downvote").onclick = "";
+                document.getElementById("upvote").style.color="red";
+                document.getElementById("downvote").mouseenter
+            }
+            function downvote(){
+                var vote = document.getElementById("votes").innerHTML;
+                document.getElementById("votes").innerHTML = parseInt(vote) - 1;
+                document.getElementById("downvote").onclick = "";
+                document.getElementById("downvote").style.color="blue";
+                document.getElementById("upvote").onclick="";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <a href="http://localhost:8080/home"><h1>Home</h1></a>
+            
+            <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
+        </div>
+
+        <ul class="posts">
+            <li>
+               
+                <div class="post">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">202</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My first post</h2>
+                        <i class="fa fa-gear" id="gear"></i>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>News</a>
+                        <a>Wholesome</a>
+                        <a>Question</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-comment"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">501</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My second post</h2>
+                        <i class="fa fa-gear" id="gear"></i>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>News</a>
+                        <a>Wholesome</a>
+                        <a>Question</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-comment"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">00</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <div>
+                            <h2 class="postTitle">My first post</h2>
+                            <h3>(This post is locked)</h3>
+                        </div>
+                        <i class="fa fa-gear" id="gear"></i>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>Confession</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-lock"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </body>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .header>a{
+            margin-right: 40px;
+            margin-left: 20px;
+            padding:0px;
+        }
+        .profileShortcut{
+            position: absolute;
+            right: 3%;
+            top: 5%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        p{
+            border: 1px solid black;
+            width: 90%;
+            padding: 5px;
+            margin: auto;
+        }
+        body{
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 0px;
+        }
+        ul{
+            margin: auto;
+            width: 80%;
+        }
+        li{
+            list-style: none;
+            margin: 10px;
+        }
+        #gear{
+            margin-left: 700px; 
+            margin-top: 25px;
+            color: rgb(255, 140, 0);
+        }
+        #gear:hover{
+            cursor: pointer;
+        }
+        .post{
+            background-color: wheat;
+            width: 80%;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-top: 15px;
+        }
+        .title{
+            display: inline-flex;
+            flex-direction: row;
+        }
+        .vote{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .postTitle{
+            margin: 15px;
+        }
+        #upvote:hover{
+            color: red;
+        }
+        #downvote:hover{
+            color: blue;
+        }
+        .tags{
+            margin: 20px;
+            
+        }
+        h3{
+            color: red;
+        }
+        .tags>a{
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .postInfo{
+            display: inline-flex;
+            flex-direction: row;
+        }
+        .postInfo>a{
+            margin:0px 15px 0 15px;
+        }
+        .header>a:hover{
+            background-color: white;
+            border: 5px solid aqua;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 15px;
+        }
+    </style>
+
+</html>
