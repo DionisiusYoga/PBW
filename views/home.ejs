@@ -2,23 +2,53 @@
     <head>
         <link rel="stylesheet" href="../public/style/home.css">
         <script src="../public/js/home.js"></script>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            function upvote(){
+                var vote = document.getElementById("votes").innerHTML;
+                document.getElementById("votes").innerHTML = parseInt(vote) + 1;
+                document.getElementById("upvote").onclick = "";
+                document.getElementById("downvote").onclick = "";
+                document.getElementById("upvote").style.color="red";
+                document.getElementById("downvote").mouseenter
+            }
+            function downvote(){
+                var vote = document.getElementById("votes").innerHTML;
+                document.getElementById("votes").innerHTML = parseInt(vote) - 1;
+                document.getElementById("downvote").onclick = "";
+                document.getElementById("downvote").style.color="blue";
+                document.getElementById("upvote").onclick="";
+            }
+        </script>
     </head>
     <body>
         <div class="header">
             <a href="http://localhost:8080/home"><h1>Home</h1></a>
             <a href="http://localhost:8080/postList"><h1>My post</h1></a>
             <a href="http://localhost:8080/new"><h1>New post</h1></a>
-            <a class="profileShortcut">Profile</a>
+            <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
         </div>
 
-        <ol class="posts">
-            <li class="post">
-                <h4 class="postTitle">Title</h4>
-                <p class="postContent">Content here</p>
-                <a class="postTag">Tag here</a>
+        <ul class="posts">
+            <li>
+               
+                <div class="post">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">202</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My first post</h2>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <a class="postTag">Tag here</a>
+                </div>
             </li>
-        </ol>
+        </ul>
     </body>
     <style>
         .header{
@@ -37,6 +67,12 @@
             font-size: 30px;
             font-weight: bold;
         }
+        p{
+            border: 1px solid black;
+            width: 90%;
+            padding: 5px;
+            margin: auto;
+        }
         body{
             margin: 10px;
             background-color: rgb(161, 161, 161);
@@ -45,6 +81,39 @@
             text-decoration: none;
             color: black;
             margin: 0px;
+        }
+        ul{
+            margin: auto;
+            width: 80%;
+        }
+        li{
+            list-style: none;
+            margin: 10px;
+        }
+        .post{
+            background-color: wheat;
+            width: 80%;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .title{
+            display: inline-flex;
+            flex-direction: row;
+        }
+        .vote{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .postTitle{
+            margin: 15px;
+        }
+        #upvote:hover{
+            color: red;
+        }
+        #downvote:hover{
+            color: blue;
         }
     </style>
 
