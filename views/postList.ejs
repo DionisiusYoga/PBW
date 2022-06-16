@@ -5,28 +5,217 @@
             <a href="http://localhost:8080/postList"><h1>My post</h1></a>
             <a href="http://localhost:8080/new"><h1>New post</h1></a>
             <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         </div>
+        <script>
+            filter("all")
+            function filter(tag){
+                var x,i;
+                x = document.getElementsByClassName("post");
+                if(c=="all"){
+                    c=""
+                };
+                for(i=0;i<x.length;i++){
+                    remove(x[i],"show");
+                    if (x[i].className.indexOf(c) > -1) {
+                        add(x[i], "show");
+                    }
+                }
+            }
+            function remove(element,clas){
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                    }
+                }             
+                element.className = arr1.join(" ");
+            }
+            function add(element,clas){
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+                }
+            }
+        </script>
     </head>
     <body>
         <div class="dropdown">
             <button class="dropbtn">Filter tag</button>
             <div class="content">
-                <a>Link1</a>
-                <a>Link1</a>
-                <a>Link1</a>
-                <a>Link1</a>
+                <a onclick="filter('question')">Question</a>
+                <a onclick="filter('wholesome')">Wholesome</a>
+                <a onclick="filter('news')">News</a>
+                <a onclick="filter('confession')">Confession</a>
             </div>
         </div>
+        <ul class="posts">
+            <li>
+               
+                <div class="post news wholesome question">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">202</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My first post</h2>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>News</a>
+                        <a>Wholesome</a>
+                        <a>Question</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-comment"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post news">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">501</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My second post</h2>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>News</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-comment"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post confession">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <a id="votes">00</a>
+                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                        </div>
+                        <h2 class="postTitle">My third post</h2>
+                        <h3>(This post is locked)</h3>
+                    </div>
+                    
+                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="Tags">
+                        <a>Confession</a>
+                    </div>
+                    <div class="postInfo">
+                        <a>29-12-2020</a>
+                        <div>
+                            <i class="fa fa-lock"></i>
+                            <a>3 comments</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </body>
     <style>
+        ul{
+            margin: auto;
+            width: 80%;
+        }
+        li{
+            list-style: none;
+            margin: 10px;
+        }
+        .post{
+            background-color: wheat;
+            width: 80%;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .title{
+            display: inline-flex;
+            flex-direction: row;
+        }
+        .vote{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .postTitle{
+            margin: 15px;
+        }
+        #upvote:hover{
+            color: red;
+        }
+        #downvote:hover{
+            color: blue;
+        }
+        .tags{
+            margin: 20px;
+            
+        }
+        h3{
+            color: red;
+        }
+        .show{
+            display: inline-flex;
+        }
+        .tags>a{
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .postInfo{
+            display: inline-flex;
+            flex-direction: row;
+        }
+        .postInfo>a{
+            margin:0px 15px 0 15px;
+        }
+        p{
+            border: 1px solid black;
+            width: 90%;
+            padding: 5px;
+            margin: auto;
+        }
         .header{
             background-color: aqua;
             display: inline-flex;
             width: 100%;
+            border-radius: 5px;
         }
         .header>a{
             margin-right: 50px;
             margin: 10px;
+            
+        }
+        .header>a:hover{
+            background-color: white;
+            border: 5px solid aqua;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 15px;
         }
         .profileShortcut{
             position: absolute;
@@ -75,6 +264,9 @@
         }
         .content a:hover{
             background-color: azure;
+        }
+        .posts{
+            overflow: hidden;
         }
     </style>
 </html>
