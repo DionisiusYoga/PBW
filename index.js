@@ -21,7 +21,6 @@ const dbConnect = () => {
         })
     })
 }
-
 app.listen(8080)
 app.set('view engine', "ejs")
 app.get('/',(req, res)=> {
