@@ -6,13 +6,24 @@
             <a href="http://localhost:8080/new" href="http://localhost:8080/profile"><h1>New post</h1></a>
             <a class="profileShortcut">Profile</a>
         </div>
+        <script>
+            function check(){
+                var title = document.getElementById("id").value;
+                var content = document.getElementById("content").value;
+                if(title.length>4 && content.length>10){
+                    alert("Success")
+                } else{
+                    alert("Fail")
+                }
+            }
+        </script>
     </head>
     <body>
         <form>
             <h3>Your new post:</h3><br>
             <div class="input">
-                <input type="text" placeholder="Your title"><br><br>
-                <textarea class="textArea" rows="5" cols="60" placeholder="Your post here"></textarea><br><br>
+                <input type="text" placeholder="Your title" id="title"><br><br>
+                <textarea class="textArea" rows="5" cols="60" placeholder="Your post here" id="content"></textarea><br><br>
 
                 
                 <div class="tagSelection">
@@ -32,7 +43,7 @@
                     <label for="Confession">Confession</label>
                     </div>
                 </div><br><br>
-                <button class="submit">Submit</button><br>
+                <button class="submit" onclick="check()">Submit</button><br>
             </div>
         </form>
     </body>
