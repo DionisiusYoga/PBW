@@ -1,33 +1,17 @@
 <html>
     <head>
         <link rel="stylesheet" href="../public/login.css">
-        <script type="text/javascript">
-            function redirect(){
-                var id = document.getElementById("id").value;
-                var pass = document.getElementById("pass").value;
-                if(id=="user" && pass=="123"){
-                    window.location.href="http://localhost:8080/home";
-                } else if (id=="admin" && pass=="admin") {
-                    window.location.href="http://localhost:8080/homeAdmin";
-                } else if(id=="mod" && pass=="mod123"){
-                    window.location.href="http://localhost:8080/homeMod";
-                }
-                
-            }
-        </script>
+        
     </head>
     <body>
         <div class="box">
             <h1>Log in</h1>
-        <form>
-            
-            
-            <input type="text" name="id" id="id" placeholder="ID" required>
+        <form action="/" method="post">
+            <input type="text" name="user" id="user" placeholder="ID" required>
             <br><br>
-            <input type="password" name="pass" id="pass" placeholder="Password" required>
-            
+            <input type="password" name="pass" id="pass" placeholder="Password" required><br>
+            <input type="submit" id="button" onclick="redirect()" value="Submit">
         </form>
-        <button onclick="redirect()">Submit</button>
         </div>
     </body>
     <style>
@@ -60,7 +44,7 @@
             font-size:1em;
             border-radius:4px;
         }
-        button{
+        #button{
             background:#2ecc71;
             width:200px;
             padding-top:5px;
@@ -75,7 +59,7 @@
             font-weight:800;
             font-size:0.8em;
         }
-        button:hover{
+        #button:hover{
             border: #2ecc71 1px solid;
             border-radius: 4px;
             background-color: white;
