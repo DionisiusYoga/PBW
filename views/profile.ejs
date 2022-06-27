@@ -9,42 +9,32 @@
         <div class="box">
             <div class="name">
                 
-                <h1>John Doe</h1>
+                <h1><%= name%></h1>
+                <h2><%= date%></h2>
             </div>
             <div class="posts">
                 <ul>
-                    <li>
+                    
+                        <%
+                        if(posts.length>0){
+                            var i=1;
+                            posts.forEach(function(data){
+                        %>
+                        <li>
                         <div class="post">
-                            <h3>My first post</h3>
+                            <h3><%= data.title%></h3>
                             <div class="postDetail">
-                                <a>2020-12-29</a>
-                                <a>202 Upvotes</a>
-                                <a>3 Comments</a>
+                                <a><%= data.created_date%></a>
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="post">
-                            <h3>My second post</h3>
-                            <div class="postDetail">
-                                <a>2020-12-29</a>
-                                <a>202 Upvotes</a>
-                                <a>3 Comments</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="post">
-                            <h3>My second post</h3>
-                            <div class="postDetail">
-                                <i class="fa fa-lock" id="lock"></i>
-                                <a>2020-12-29</a>
-                                <a>202 Upvotes</a>
-                                <a>3 Comments</a>
-                            </div>
-                        </div>
-                    </li>
+                    </li>        
+                        <%  i++; }) %>
+                        <% } else{ %>
+                            <h1>No post</h1>
+                        <% } %>
+                    
                 </ul>
+                
             </div>
         </div>
 
@@ -63,9 +53,8 @@
         }
         .box{
             background-color: rgb(189, 186, 186);
-            height: 80%;
             width: 90%;
-            margin: auto auto auto auto;
+            margin: 0 auto 0 auto;
             border-radius: 20px;
         }
         .name{
@@ -85,7 +74,7 @@
         }
         li{
             list-style: none;
-            margin: 4px;
+            margin: 4px auto 4px auto;
             color: white;
         }
         .post:hover{

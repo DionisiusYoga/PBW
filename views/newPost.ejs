@@ -19,27 +19,26 @@
         </script>
     </head>
     <body>
-        <form>
+        <form action="/new" method="post">
             <h3>Your new post:</h3><br>
             <div class="input">
-                <input type="text" placeholder="Your title" id="title"><br><br>
-                <textarea class="textArea" rows="5" cols="60" placeholder="Your post here" id="content"></textarea><br><br>
-
-                
+                <input type="text" placeholder="Your title" id="title" name="title"><br><br>
+                <textarea rows="5" cols="60" name="content" placeholder="Your post here" id="content"></textarea><br><br>                
                 <div class="tagSelection">
-                    <div><input type="checkbox" id="question" name="question" value="question">
-                        <label for="question">Question</label>
+                    <div>
+                    <input type="radio" id="Question" name="tags" value="Question">
+                    <label for="Question">Question</label><br>
                     </div>
                     <div>
-                        <input type="checkbox" id="news" name="news" value="news">
-                    <label for="news">News</label>
+                    <input type="radio" id="Wholesome" name="tags" value="Wholesome">
+                    <label for="Wholesome">Wholesome</label><br>
                     </div>
                     <div>
-                        <input type="checkbox" id="Wholesome" name="Wholesome" value="Wholesome">
-                    <label for="Wholesome">Wholesome</label>
+                    <input type="radio" id="News" name="tags" value="News">
+                    <label for="News">News</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="Confession" name="Confession" value="Confession">
+                    <input type="radio" id="Confession" name="tags" value="Confession">
                     <label for="Confession">Confession</label>
                     </div>
                 </div><br><br>

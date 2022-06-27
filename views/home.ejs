@@ -3,23 +3,6 @@
         <link rel="stylesheet" href="../public/style/home.css">
         <script src="../public/js/home.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>
-            function upvote(){
-                var vote = document.getElementById("votes").innerHTML;
-                document.getElementById("votes").innerHTML = parseInt(vote) + 1;
-                document.getElementById("upvote").onclick = "";
-                document.getElementById("downvote").onclick = "";
-                document.getElementById("upvote").style.color="red";
-                document.getElementById("downvote").mouseenter
-            }
-            function downvote(){
-                var vote = document.getElementById("votes").innerHTML;
-                document.getElementById("votes").innerHTML = parseInt(vote) - 1;
-                document.getElementById("downvote").onclick = "";
-                document.getElementById("downvote").style.color="blue";
-                document.getElementById("upvote").onclick="";
-            }
-        </script>
     </head>
     <body>
         <div class="header">
@@ -29,84 +12,39 @@
             <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
         </div>
 
-        <ul class="posts">
+        <ul>
             <li>
-               
+                <%
+                if(posts.length>0){
+                    var i=1;
+                    posts.forEach(function(data){
+                %>
                 <div class="post">
                     <div class="title">
                         <div class="vote">
-                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
-                            <a id="votes">202</a>
-                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
-                        </div>
-                        <h2 class="postTitle">My first post</h2>
-                    </div>
-                    
-                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-
-                    <div class="Tags">
-                        <a>News</a>
-                        <a>Wholesome</a>
-                        <a>Question</a>
-                    </div>
-                    <div class="postInfo">
-                        <a>29-12-2020</a>
-                        <button class="comment">
-                            <i class="fa fa-comment"></i>
-                            <a>3 comments</a>
-                        </button>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="title">
-                        <div class="vote">
-                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
-                            <a id="votes">501</a>
-                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
-                        </div>
-                        <h2 class="postTitle">My second post</h2>
-                    </div>
-                    
-                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-
-                    <div class="Tags">
-                        <a>News</a>
-                    </div>
-                    <div class="postInfo">
-                        <a>29-12-2020</a>
-                        <button class="comment">
-                            <i class="fa fa-comment"></i>
-                            <a>3 comments</a>
-                        </button>
-                    </div>
-                </div>
-                <div class="post">
-                    <div class="title">
-                        <div class="vote">
-                            <i class="fa fa-arrow-up" id="upvote" onclick="upvote()"></i>
+                            <i class="fa fa-arrow-up" id="upvote" ></i>
                             <a id="votes">00</a>
-                            <i class="fa fa-arrow-down" id="downvote" onclick="downvote()"></i>
+                            <i class="fa fa-arrow-down" id="downvote" ></i>
                         </div>
-                        <h2 class="postTitle">My first post</h2>
-                        <h3>(This post is locked)</h3>
+                        <h2 class="postTitle"><%= data.title%></h2>
+                        <% if(data.lock_by != null){ %>
+                        <h3>(This post is locked)</h3><br>
+                        <h4>Locked by user id: <%= data.lock_by%></h4>
+                        <% } %>
                     </div>
-                    
-                    <p class="postContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <p class="postContent"><%= data.content%>
                     </p>
-
                     <div class="Tags">
                         <a>Confession</a>
                     </div>
                     <div class="postInfo">
-                        <a>29-12-2020</a>
-                        <div class="comment">
-                            <i class="fa fa-lock" id="lock"></i>
-                            <a>3 comments</a>
-                        </div>
+                        <a><%= data.created_date%></a>
                     </div>
                 </div>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <h1>No post</h1>
+                <% } %>
             </li>
         </ul>
     </body>
