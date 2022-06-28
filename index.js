@@ -4,6 +4,7 @@ const mysql = require("mysql")
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const flash = require('connect-flash');
+const { render } = require("ejs")
 
 
 const dbConnect = () => {
@@ -186,6 +187,17 @@ app.post('/',async(req, res)=>{
         }
     })
 })
+app.post('/search',async(req,res)=>{
+    const conn = await dbConnect();
+    var postName = req.body.title;
+    var sql = `SELECT * FROM thread WHERE title =  ?`
+    conn.query(sql,[postName],(err,results)=>{
+        if(err) throw err;
+        var posts = results
+        res.render('searchResult',{posts})
+        console.log(postName)
+    })
+})
 app.get('/home',async(req, res)=>{
     const conn = await dbConnect();
     let posts = await getPost(conn);
@@ -291,4 +303,8 @@ app.post('/new',async(req, res)=>{
 app.get('/testing',async(req, res)=>{
     const conn = await dbConnect();
     res.send("test" + req.body.userId);
+})
+app.get('/search',async(req, res)=>{
+    const conn = await dbConnect();
+    res.render('search');
 })

@@ -1,20 +1,19 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../public/style/home.css">
-        <script src="../public/js/home.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
         <div class="header">
             <a href="http://localhost:8080/home"><h1>Home</h1></a>
             <a href="http://localhost:8080/postList"><h1>Post list</h1></a>
-            <a href="http://localhost:8080/new"><h1>New post</h1></a>
+            <a href="http://localhost:8080/new" ><h1>New post</h1></a>
             <a href="http://localhost:8080/search"><h1>Search post</h1></a>
             <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
         </div>
+        </script>
+    </head>
+    <body>
+                <ul>
+                    <li>
 
-        <ul>
-            <li>
+                
                 <%
                 if(posts.length>0){
                     var i=1;
@@ -22,11 +21,6 @@
                 %>
                 <div class="post">
                     <div class="title">
-                        <div class="vote">
-                            <i class="fa fa-arrow-up" id="upvote" ></i>
-                            <a id="votes">00</a>
-                            <i class="fa fa-arrow-down" id="downvote" ></i>
-                        </div>
                         <h2 class="postTitle"><%= data.title%></h2>
                         <% if(data.lock_by != null){ %>
                         <h3>(This post is locked)</h3><br>
@@ -57,9 +51,15 @@
             border-radius: 5px;
         }
         .header>a{
-            margin-right: 40px;
-            margin-left: 20px;
-            padding:0px;
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .header>a:hover{
+            background-color: white;
+            border: 5px solid aqua;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 15px;
         }
         .profileShortcut{
             position: absolute;
@@ -68,27 +68,37 @@
             font-size: 30px;
             font-weight: bold;
         }
-        p{
-            border: 1px solid black;
-            width: 90%;
-            padding: 5px;
-            margin: auto;
-        }
         body{
             margin: 10px;
+        }
+        .tagSelection{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        input[type="text"]{
+            width: 500px;
+        }
+        input[type="submit"]{
+            background-color: black;
+            color: white;
+            padding: 5px 15px 5px 15px;
+            margin-left: 200px;
+        }
+        input[type="submit"]:hover{
+            cursor: pointer;
         }
         a{
             text-decoration: none;
             color: black;
             margin: 0px;
         }
-        ul{
-            margin: auto;
-            width: 80%;
-        }
-        li{
-            list-style: none;
-            margin: 10px;
+        form{
+            margin: 50px auto auto auto;
+            width: fit-content;
+            background-color: aquamarine;
+            padding: 50px;
+            border-radius: 20px;
+            border: 5px solid black;
         }
         .post{
             background-color: lightgray;
@@ -155,6 +165,13 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        ul{
+            margin: auto;
+            width: 80%;
+        }
+        li{
+            list-style: none;
+            margin: 10px;
+        }
     </style>
-
 </html>

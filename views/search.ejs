@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <div class="header">
+            <a href="http://localhost:8080/home"><h1>Home</h1></a>
+            <a href="http://localhost:8080/postList"><h1>Post list</h1></a>
+            <a href="http://localhost:8080/new" ><h1>New post</h1></a>
+            <a href="http://localhost:8080/search"><h1>Search post</h1></a>
+            <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
+        </div>
+        </script>
+    </head>
+    <body>
+        <form action="/search" method="post">
+            <h3>Your new post:</h3><br>
+            <div class="input">
+                <input type="text" placeholder="Your title" id="title" name="title" required><br><br>
+                </div><br><br>
+                <input type="submit">
+            </div>
+        </form>
+    </body>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .header>a{
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .header>a:hover{
+            background-color: white;
+            border: 5px solid aqua;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 15px;
+        }
+        .profileShortcut{
+            position: absolute;
+            right: 3%;
+            top: 5%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body{
+            margin: 10px;
+        }
+        .tagSelection{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        input[type="text"]{
+            width: 500px;
+        }
+        input[type="submit"]{
+            background-color: black;
+            color: white;
+            padding: 5px 15px 5px 15px;
+            margin-left: 200px;
+        }
+        input[type="submit"]:hover{
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 0px;
+        }
+        form{
+            margin: 50px auto auto auto;
+            width: fit-content;
+            background-color: aquamarine;
+            padding: 50px;
+            border-radius: 20px;
+            border: 5px solid black;
+        }
+    </style>
+</html>
