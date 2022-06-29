@@ -4,8 +4,12 @@ const mysql = require("mysql")
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const flash = require('connect-flash');
+
 const fs = require('fs')
 const PDFDocument = require('pdfkit-table')
+
+const { render } = require("ejs")
+
 
 
 var doc = new PDFDocument({ margin: 30, size: 'A4' });
@@ -223,6 +227,17 @@ app.post('/',async(req, res)=>{
         }
     })
 })
+app.post('/search',async(req,res)=>{
+    const conn = await dbConnect();
+    var postName = req.body.title;
+    var sql = `SELECT * FROM thread WHERE title =  ?`
+    conn.query(sql,[postName],(err,results)=>{
+        if(err) throw err;
+        var posts = results
+        res.render('searchResult',{posts})
+        console.log(postName)
+    })
+})
 app.get('/home',async(req, res)=>{
     const conn = await dbConnect();
     let posts = await getPost(conn);
@@ -412,6 +427,7 @@ app.get('/testing',async(req, res)=>{
     const conn = await dbConnect();
     res.send("test" + req.body.userId);
 })
+
 app.post('/filter/:tag',async(req, res)=>{
     const conn = await dbConnect();
     var tagId = req.params['tag'];
@@ -443,3 +459,9 @@ app.get('/pdfDocument',async(req,res)=>{
     });
     doc.end();
 })
+=======
+app.get('/search',async(req, res)=>{
+    const conn = await dbConnect();
+    res.render('search');
+})
+
