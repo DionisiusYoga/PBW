@@ -6,17 +6,6 @@
             <a href="http://localhost:8080/new" href="http://localhost:8080/profile"><h1>New post</h1></a>
             <a class="profileShortcut">Profile</a>
         </div>
-        <script>
-            function check(){
-                var title = document.getElementById("id").value;
-                var content = document.getElementById("content").value;
-                if(title.length>4 && content.length>10){
-                    alert("Success")
-                } else{
-                    alert("Fail")
-                }
-            }
-        </script>
     </head>
     <body>
         <form action="/new" method="post">

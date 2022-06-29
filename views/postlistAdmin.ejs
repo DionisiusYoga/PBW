@@ -1,10 +1,10 @@
 <html>
     <head>
         <div class="header">
-            <a href="http://localhost:8080/home"><h1>Home</h1></a>
-            <a href="http://localhost:8080/postList"><h1>My post</h1></a>
-            <a href="http://localhost:8080/new"><h1>New post</h1></a>
-            <a class="profileShortcut" href="http://localhost:8080/profile">Profile</a>
+            <a href="http://localhost:8080/homeAdmin"><h1>Home</h1></a>
+            <a href="http://localhost:8080/postListAdmin"><h1>Post</h1></a>
+            <a href="http://localhost:8080/upUser"><h1>Update User</h1></a>
+            <a class="profileShortcut" href="http://localhost:8080/profileAdmin">Profile</a>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         </div>
     </head>
@@ -17,15 +17,50 @@
                     var i=1;
                     categories.forEach(function(category){
                 %>
-                <button formaction=""><a> <%=category.name%></a></button>
+                <button><a> <%=category.name%></a></button>
                 <%  i++; }) %>
                 <% } else{ %>
                     <a>No categories found</a>
                 <% } %>
             </div>
         </div>
+                <%
+                if(posts.length>0){
+                    var i=1;
+                    posts.forEach(function(data){
+                %>
+                <div class="post">
+                    <div class="title">
+                        <div class="vote">
+                            <i class="fa fa-arrow-up" id="upvote" ></i>
+                            <a id="votes">00</a>
+                            <i class="fa fa-arrow-down" id="downvote" ></i>
+                        </div>
+                        <h2 class="postTitle"><%= data.title%></h2>
+                        <% if(data.lock_by != null){ %>
+                        <h3>(This post is locked)</h3><br>
+                        <h4>Locked by user id: <%= data.lock_by%></h4>
+                        <% } %>
+                    </div>
+                    <p class="postContent"><%= data.content%>
+                    </p>
+                    <div class="Tags">
+                        <a>Confession</a>
+                    </div>
+                    <div class="postInfo">
+                        <a><%= data.created_date%></a>
+                    </div>
+                </div>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <h1 class="middle">PICK A TAG</h1>
+                <% } %>
     </body>
     <style>
+        .middle{
+            position: absolute;
+            left: 45%;
+        }
         ul{
             margin: auto;
             width: 80%;
