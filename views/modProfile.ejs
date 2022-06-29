@@ -40,6 +40,33 @@
                     <tr><td colspan="7">NO DATA FOUND</td></tr>
                 <% } %>
             </table>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Content</th>
+                    <th>Author</th>
+                    <th>Category date</th>
+                </tr>
+                <%
+                if (posts.length>0){
+                    var i =1;
+                    posts.forEach(function (post){
+                %>
+                <tr>
+                    <td><%= post.id%></td>
+                    <td><%= post.title%></td>
+                    <td><%= post.created_date%></td>
+                    <td><%= post.content%></td>
+                    <td><%= post.author_id%></td>
+                    <td><%= post.category_id%></td>
+                </tr>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr><td colspan="7">NO DATA FOUND</td></tr>
+                <% } %>
+            </table>
 
         </div>
 
@@ -105,7 +132,7 @@
             width: auto;
         }
         table{
-            margin: auto;
+            margin: 20px auto 10px auto;
         }
        
     </style>

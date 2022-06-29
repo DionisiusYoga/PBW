@@ -3,8 +3,8 @@
         <div class="header">
             <a href="http://localhost:8080/homeAdmin"><h1>Home</h1></a>
             <a href="http://localhost:8080/postListAdmin"><h1>My post</h1></a>
-            <a href="http://localhost:8080/new" href="http://localhost:8080/profile"><h1>New post</h1></a>
-            <a class="profileShortcut">Profile</a>
+            <a href="http://localhost:8080/upUser" ><h1>New post</h1></a>
+            <a class="profileShortcut" href="http://localhost:8080/profileAdmin">Profile</a>
         </div>
         <script>
             function check(){
@@ -19,30 +19,19 @@
         </script>
     </head>
     <body>
-        <form action="/new" method="post">
-            <h3>Your new post:</h3><br>
+        <form action="/upUser" method="post">
+            <h3>User to update</h3><br>
             <div class="input">
-                <input type="text" placeholder="Your title" id="title" name="title"><br><br>
-                <textarea rows="5" cols="60" name="content" placeholder="Your post here" id="content"></textarea><br><br>                
-                <div class="tagSelection">
-                    <div>
-                    <input type="radio" id="Question" name="tags" value="Question">
-                    <label for="Question">Question</label><br>
-                    </div>
-                    <div>
-                    <input type="radio" id="Wholesome" name="tags" value="Wholesome">
-                    <label for="Wholesome">Wholesome</label><br>
-                    </div>
-                    <div>
-                    <input type="radio" id="News" name="tags" value="News">
-                    <label for="News">News</label>
-                    </div>
-                    <div>
-                    <input type="radio" id="Confession" name="tags" value="Confession">
-                    <label for="Confession">Confession</label>
-                    </div>
-                </div><br><br>
-                <button class="submit" onclick="check()">Submit</button><br>
+                <input type="text" placeholder="User id" id="userID" name="userID"><br><br>                
+                <input type="text" placeholder="user/mod/admin" id="role" name="role"><br><br>
+                <button class="submit">Submit</button><br>
+            </div>
+        </form>
+        <form action="/delUser" method="post">
+            <h3>User to delete</h3><br>
+            <div class="input">
+                <input type="text" placeholder="User id" id="userID" name="userID"><br><br>
+                <button class="submit" >Submit</button><br>
             </div>
         </form>
     </body>
@@ -84,9 +73,8 @@
             margin: 0px;
         }
         form{
-            position: absolute;
-            left: 30%;
-            top: 20%;
+            margin: 50px auto auto auto;
+            width: fit-content;
             background-color: aquamarine;
             padding: 50px;
             border-radius: 20px;

@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <div class="header">
+            <a href="http://localhost:8080/homeMod"><h1>Home</h1></a>
+            <a href="http://localhost:8080/upThread" ><h1>Update Thread</h1></a>
+            <a class="profileShortcut" href="http://localhost:8080/profileMod">Profile</a>
+        </div>
+        <script>
+            function check(){
+                var title = document.getElementById("id").value;
+                var content = document.getElementById("content").value;
+                if(title.length>4 && content.length>10){
+                    alert("Success")
+                } else{
+                    alert("Fail")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/lockThread" method="post">
+            <h3>Thread to lock</h3><br>
+            <div class="input">
+                <input type="text" placeholder="User id" id="userID" name="userID"><br><br> 
+                <button class="submit">Submit</button><br>
+            </div>
+        </form>
+        <form action="/delThread" method="post">
+            <h3>Thread to delete</h3><br>
+            <div class="input">
+                <input type="text" placeholder="User id" id="userID" name="userID"><br><br>
+                <button class="submit" >Submit</button><br>
+            </div>
+        </form>
+        <form action="/banUser" method="post">
+            <h3>User to ban</h3><br>
+            <div class="input">
+                <input type="text" placeholder="User id" id="userID" name="userID"><br><br>
+                <button class="submit" >Submit</button><br>
+            </div>
+        </form>
+    </body>
+    <style>
+        .header{
+            background-color: aqua;
+            display: inline-flex;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .header>a{
+            margin-right: 50px;
+            margin: 10px;
+        }
+        .header>a:hover{
+            background-color: white;
+            border: 5px solid aqua;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 15px;
+        }
+        .profileShortcut{
+            position: absolute;
+            right: 3%;
+            top: 5%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        body{
+            margin: 10px;
+        }
+        .tagSelection{
+            display: inline-flex;
+            flex-direction: column;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            margin: 0px;
+        }
+        form{
+            margin: 50px auto auto auto;
+            width: fit-content;
+            background-color: aquamarine;
+            padding: 50px;
+            border-radius: 20px;
+            border: 5px solid black;
+        }
+    </style>
+</html>
